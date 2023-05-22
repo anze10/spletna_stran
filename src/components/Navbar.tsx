@@ -11,10 +11,6 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Theme, useTheme } from "@mui/material/styles"
 import { Drawer } from '@mui/material';
-
-
-
-
 const menu = ['O nas', 'Vodstvo', 'Novice', 'Seminarji'];
 const themedStyles = (theme: Theme) => {
   return {
@@ -24,27 +20,21 @@ const themedStyles = (theme: Theme) => {
 
   }
 }
-
 function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
   const theme = useTheme();
-
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-
   function handleClick(event: React.MouseEvent<HTMLElement>) {
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
     }
   }
-
   function handleClose() {
     setAnchorEl(null);
   }
-
   return (
     <AppBar position="relative" sx={themedStyles(theme).appBar}>
       <Container maxWidth={false}>
@@ -55,37 +45,28 @@ function ResponsiveAppBar() {
             onMouseOver={handleClick}
             size="large"
             edge="start"
-            //color="inherit"
+            color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
             <MenuIcon />
           </Tooltip>
-
           <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
             <Image
               src={logo}
               alt='/home/anze/Desktop/varnostni_inzinerji/logo.jpg'
-
             />
-
           </div>
-
-
           <Drawer
             PaperProps={{
               sx: { width: "12%" },
             }}
             anchor='left'
-
             open={Boolean(anchorEl)}
             onClose={handleClose}
-
           >
             <Toolbar></Toolbar>
             <Toolbar></Toolbar>
-
-
             {menu.map((menu) => (
               <Link key={menu} href={`/${menu.toLowerCase()}`}>
                 <MenuItem key={menu} onClick={handleCloseUserMenu}>
@@ -93,8 +74,6 @@ function ResponsiveAppBar() {
                 </MenuItem>
               </Link>
             ))}
-
-
           </Drawer>
         </Toolbar>
       </Container>
