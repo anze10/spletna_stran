@@ -1,17 +1,10 @@
-import { type NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
-
-import { api } from "~/utils/api";
-
 import Navbar from 'src/components/Navbar';
-import { Box, Paper, TextField, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function App() {
     return (
         <Box sx={{ height: '100%', width: '100%' }} >
-
-            <Navbar></Navbar>
+            <Navbar />
             <Box>
                 <Typography sx={{ height: '30%', width: '30%' }} textAlign="left">
                     Spoštovani,
