@@ -1,6 +1,7 @@
 import Navbar from 'src/components/Navbar';
 import { Box, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import style from 'styled-jsx/style';
+import MyListItem from 'src/components/MyListItemProps';
 
 function App() {
     return <>
@@ -26,12 +27,8 @@ function App() {
                     Društvo se je takoj po ustanovitvi vklopilo v zvezo društev varnostnih inženirjev in tehnikov Slovenije in začelo zelo aktivno delovati:
                 </Typography >
                 <br />
-                <ListItem component="div" disablePadding>
-                    <ListItemText primary={`1889 – strokovni posvet v Krškem ( več kot 80 udeležencev)`} />
-                </ListItem>
-                <ListItem component="div" disablePadding>
-                    <ListItemText primary={`1990 - strokovni posvet z okroglo mizo dom JLA v Novem mestu itd. `} />
-                </ListItem>
+                <MyListItem>1889 – strokovni posvet v Krškem ( več kot 80 udeležencev)  </MyListItem>
+                <MyListItem>1990 - strokovni posvet z okroglo mizo dom JLA v Novem mestu itd.</MyListItem>
                 <br />
                 <Typography>
                     ČAktivni člani Izvršilnega odbora DVIT v tem obdobju: Jože Pfeifer – Lisca Sevnica, Jože Drnač – Jutranjka Sevnica, Jože Škofljanec – Pohištvo Brežice, Simon Vrlinič – Belt, Marjan Kozan – Begrad, Petar Andrič – Vino Brežice, Italo Morosini – Krka, Alojz Cerjak – NEK, Andrej Poljšak – UIS, Alojzij Kukman – Revoz, Andrej Škulj – Krka, Jože Žagar - VIDEM Krško.
@@ -64,18 +61,46 @@ function App() {
                 <Typography>
                     Pomembne aktivnosti društva od ustanovitve do danes:
                 </Typography>
+                <MyListItem>Tesno sodelovanje z Zvezo društev varnostnih inženirjev Slovenije in Fundacijo Avgusta Kuharja. Sodelovali pri ustanavljanju Zbornice varnosti in zdravja pri delu. </MyListItem>
+                <MyListItem>Sodelovanje v programu Phare-Razvoj slovenskega sistema varnosti in zdravja pri delu. </MyListItem>
+                <MyListItem>Sodelovanje z Inženirsko zbornico Slovenije (g. Cerjak), pri ustanavljanju sekcije tehnologov (v to sekcijo smo vključeni tudi varnostni inženirji) in organizaciji strokovnih izpitov za pooblaščene inženirje. </MyListItem>
+                <MyListItem>Aktivno sodelovanje naših članov na posvetih, simpozijih in seminarjih s tematiko varnosti in zdravja pri delu, požarne varnosti in medicine dela </MyListItem>
                 <br />
                 <Typography>
                     Društvo je organiziralo več posvetov na temo varnosti in zdravja pri delu in sicer:
                 </Typography>
+                <MyListItem>1992 Zakon o pokojninsko invalidskem zavarovanju – Krško </MyListItem>
+                <MyListItem>1995 Varstvo pri delu pred nevarnostjo električnega toka – Krško </MyListItem>
+                <MyListItem>2002 Zakon o varnosti in zdravju pri delu – Novo mesto (Revoz) </MyListItem>
+                <MyListItem>2003 VZD na gradbiščih – Otočec </MyListItem>
+                <MyListItem>2004 Usposabljanje iz VZD in PV za menegerje (v sodelovanju z Gospodarsko zbornico Slovenije, Območno zbornico Novo mesto; februarja in novembra) - Otočec </MyListItem>
                 <br />
                 <Typography>
                     Strokovne ekskurzije, ki jih je organiziralo društvo:
                 </Typography>
+                <MyListItem>1991 BMW M ű nchen - Nemčija </MyListItem>
+                <MyListItem>1992 Audi Ingoldstat - Nemčija </MyListItem>
+                <MyListItem>1993 Inštitut za varstvo pri delu v Budimpešti – Madžarska </MyListItem>
+                <MyListItem>1994 CNPP Pariz – Francija </MyListItem>
+                <MyListItem>1995 RISK center Roterdam – Nizozemska </MyListItem>
+                <MyListItem>1996 Reanult Valladolid – Španija </MyListItem>
+                <MyListItem>1997 Schulzer – Švica </MyListItem>
+                <MyListItem>1998 Zavarovalnica SUVA- Švica </MyListItem>
+                <MyListItem>2000 Viking - Luxemburg </MyListItem>
+                <MyListItem>2002 TÜV M ű nchen - Nemčija </MyListItem>
+                <MyListItem>2003 Linde - Nemčija </MyListItem>
+                <MyListItem>2004 DROGA d.d. Portorož; OPLAST PE Kobarid </MyListItem>
                 <br />
                 <Typography>
                     Odmevnejša priznanja društvu oziroma njihovim članom:
                 </Typography>
+                <MyListItem>V letu 1989 je bil tedanji predsednik društva, Rudi Ivančič izvoljen tudi za podpredsednika Zveze društev varnostnih inženirjev in tehnikov Republike Slovenije, ki mu je v letu 1990 podelila republiško priznanje za vsestransko požrtvovalno delo na področju varnosti pri delu, </MyListItem>
+                <MyListItem>V letu 2000 sta Alojz Cerjak in Branko Košir prijela priznanje fundacije Avgusta Kuharja za delo na področju varnosti in zdravja pri delu in aktivnosti v društvu, </MyListItem>
+                <MyListItem>V letu 2002 je Marjan Šmalc, tedaj zaposlen v Revozu v Novem mestu prejel priznanje fundacije Avgusta Kuharja za delo na področju varnosti in zdravja pri delu in aktivnosti v društvu, konec leta pa je prevzel mesto v.d. sekretarja Zbornice VZD, kar tudi smatramo kot priznanje stroki varnosti in zdravja pri delu na Dolenjskem. </MyListItem>
+                <MyListItem>Dne 01.03.2002 je bil v Krškem na pobudo društva ustanovljen območni odbor Zbornice varnosti in zdravja pri delu, kateremu predseduje Marjan Šmalc. Ta dan so bile izmenjane izkušnje pri izdelavi ocen tveganja - predvsem zelo pozitivna predstavitev metodologije iz Krke, ki jo je predstavil Andrej Škulj. </MyListItem>
+                <MyListItem>V letu 2003 Branko Košir prejme nagrado Avgusta Kuharja za življenjsko delo v stroki VZD za leto 2003. </MyListItem>
+                <MyListItem>V letu 2004 je Rudi Ivančič prejel priznanje fundacije Avgusta Kuharja za delo na področju varnosti in zdravja pri delu in aktivnosti v društvu. </MyListItem>
+                <MyListItem>V letu 2004 je Milan Rifelj, ki je član Izvršilnega odbora društva MDVI Novo mesto, na predlog »Društva varnostnih inženirjev tekstilne industrije« prejel priznanje fundacije Avgusta Kuharja za delo na področju varnosti in zdravja pri delu in aktivnosti v društvu. </MyListItem>
                 <br />
                 <Typography>
                     Leta 2002 je bil za predsednika društva izvoljen Miro Škufca, ter ponovno izvoljen leta 2004.
@@ -92,11 +117,14 @@ function App() {
                 <Typography>
                     V naslednjem obdobju, predvsem s članstvom v Evropski uniji nas čakajo novi izzivi. Varnost in zdravje postajata vse pomembnejši vrednoti, ki vplivata na kakovost življenja in dela, na uspešnost poslovanja podjetij in drugih organizacij. Enostransko obravnavanje, samo tehničnega vidika varnosti in zdravja pri delu, ni več zadosti. Obravnavati moramo cel delovni proces, kjer pa je v ospredju bolj organizacijski, kot tehnološki vidik. Tem spremembam se mora prilagajati tudi stroka varnosti in zdravja pri delu. Poleg urejenih delovnih pogojev, osvojene tehnologije in organizacije dela, vpliva na zagotavljanje varnosti in zdravja delavcev, še veliko mehkih dejavnikov, kot so motivacija, stres, medsebojni odnosi.
                 </Typography>
-                <Box sx={{ height: '100%', width: '1200px', justifyContent: 'right' }} >
-                    <Typography>
+                <br />
+                <Box sx={{ display: 'flex', justifyContent: "right" }}>
+                    <Typography >
                         Miro Škufca, univ. dipl. inž
                     </Typography>
                 </Box>
+
+
 
 
 

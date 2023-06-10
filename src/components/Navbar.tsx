@@ -61,6 +61,7 @@ function ResponsiveAppBar() {
     >
       <Toolbar></Toolbar>
       <Toolbar></Toolbar>
+      <SideMenuItem href=" ">Predstavitev</SideMenuItem>
       <SideMenuItem href="vodstvo_drustva">Vodstvo</SideMenuItem>
       <SideMenuItem href="kronologija">Kronologija</SideMenuItem>
       <SideMenuItem href="novice">Novice</SideMenuItem>
