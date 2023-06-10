@@ -1,17 +1,14 @@
-import * as React from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
-import logo from "/home/anze/Desktop/varnostni_inzinerji/logo.jpg";
+import logo from "/public/logo.jpg";
 import Image from "next/image";
+import { Box, Drawer, Typography } from '@mui/material';
 import Link from 'next/link';
-import { Theme, useTheme } from "@mui/material/styles"
-import { Drawer } from '@mui/material';
-const menu = ['O nas', 'Vodstvo', 'Novice', 'Seminarji'];
+import { Theme, useTheme } from "@mui/material/styles";
+
 const themedStyles = (theme: Theme) => {
   return {
     appBar: {
@@ -20,64 +17,71 @@ const themedStyles = (theme: Theme) => {
 
   }
 }
+
 function ResponsiveAppBar() {
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+
   const theme = useTheme();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  function handleClick(event: React.MouseEvent<HTMLElement>) {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
-    }
-  }
-  function handleClose() {
-    setAnchorEl(null);
-  }
-  return (
+  const [sidebarActive, setSidebarActive] = useState(false);
+
+  return <>
     <AppBar position="relative" sx={themedStyles(theme).appBar}>
-      <Container maxWidth={false}>
-        <Toolbar disableGutters>
-          <Tooltip
-            aria-owns={anchorEl ? "simple-menu" : undefined}
-            aria-haspopup="true"
-            onMouseOver={handleClick}
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </Tooltip>
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
-            <Image
-              src={logo}
-              alt='/home/anze/Desktop/varnostni_inzinerji/logo.jpg'
-            />
-          </div>
-          <Drawer
-            PaperProps={{
-              sx: { width: "12%" },
-            }}
-            anchor='left'
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <Toolbar></Toolbar>
-            <Toolbar></Toolbar>
-            {menu.map((menu) => (
-              <Link key={menu} href={`/${menu.toLowerCase()}`}>
-                <MenuItem key={menu} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{menu}</Typography>
-                </MenuItem>
-              </Link>
-            ))}
-          </Drawer>
-        </Toolbar>
-      </Container>
+      <Toolbar>
+        <IconButton
+          onMouseEnter={() => setSidebarActive(true)}
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+        >
+          <MenuIcon />
+        </IconButton>
+
+        <Box
+          sx={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end'
+          }}
+        >
+          <Image
+            src={logo}
+            alt="logo"
+            height="100"
+          />
+        </Box>
+      </Toolbar>
     </AppBar>
+
+    <Drawer PaperProps={{
+      sx: { width: "12%" },
+    }}
+      open={sidebarActive}
+      onClose={() => setSidebarActive(false)}
+    >
+      <Toolbar></Toolbar>
+      <Toolbar></Toolbar>
+      <SideMenuItem href="vodstvo_drustva">Vodstvo</SideMenuItem>
+      <SideMenuItem href="kronologija">Kronologija</SideMenuItem>
+      <SideMenuItem href="novice">Novice</SideMenuItem>
+      <SideMenuItem href="seminarji">Seminarji</SideMenuItem>
+    </Drawer>
+  </>;
+}
+
+type SideMenuItemProps = {
+  children?: React.ReactNode;
+  href: string;
+}
+
+function SideMenuItem({ children, href }: SideMenuItemProps) {
+  return (
+    <Box sx={{ paddingX: "50px" }}>
+      <Link href={href}>
+        <Typography>{children}</Typography>
+      </Link>
+    </Box>
   );
 }
+
 export default ResponsiveAppBar
