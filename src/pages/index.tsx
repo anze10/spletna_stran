@@ -7,6 +7,7 @@ function App() {
         <Navbar />
         <Box sx={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center' }} >
             <Box sx={{ height: '100%', width: '1200px' }}  >
+                <h1>Dobrodošli!</h1>
 
                 <br />
                 <Typography  >
