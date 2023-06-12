@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from "/public/logo.jpg";
 import Image from "next/image";
-import { Box, Drawer, ListItemButton, Typography } from '@mui/material';
+import { Box, Drawer, ListItemButton, ListItemText, Typography } from '@mui/material';
 import Link from 'next/link';
 import { Theme, useTheme } from "@mui/material/styles";
 
@@ -89,10 +89,8 @@ type SideMenuItemProps = {
 function SideMenuItem({ children, href }: SideMenuItemProps) {
   return (
 
-    <ListItemButton sx={{ paddingX: "50px", color: "#FAFAFA" }}>
-      <Link href={href}>
-        <Typography>{children}</Typography>
-      </Link>
+    <ListItemButton component="a" href={href} sx={{ paddingX: "50px", color: "#FAFAFA" }}>
+      <ListItemText primary={children} />
     </ListItemButton>
 
   );
