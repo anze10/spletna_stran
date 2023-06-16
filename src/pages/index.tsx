@@ -1,6 +1,7 @@
 import Navbar from 'src/components/Navbar';
 import { Box, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import style from 'styled-jsx/style';
+import download2 from 'public/download2.png';
 
 function App() {
     return <>

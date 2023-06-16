@@ -5,33 +5,23 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from "/public/logo.jpg";
 import Image from "next/image";
-import { Box, Drawer, ListItemButton, ListItemText, Typography } from '@mui/material';
+import { Box, Drawer, ListItemButton, ListItemText, ThemeProvider, Typography, createTheme, useTheme } from '@mui/material';
 import Link from 'next/link';
-import { Theme, useTheme } from "@mui/material/styles";
 
-const themedStyles = (theme: Theme) => {
-  return {
-    appBar: {
-      zIndex: theme.zIndex.drawer + 1
 
-    },
-
-  }
-}
 
 function ResponsiveAppBar() {
 
-  const theme = useTheme();
   const [sidebarActive, setSidebarActive] = useState(false);
 
   return <>
-    <AppBar position="relative" sx={themedStyles(theme).appBar} style={{ borderBottomLeftRadius: '2%', borderBottomRightRadius: '2%', background: '#2eac9c' }}>
+    <AppBar position="relative" sx={{ zIndex: '9999', borderBottomLeftRadius: '2%', borderBottomRightRadius: '2%' }}>
       <Toolbar sx={{ height: '115px', }}>
         <IconButton
           onMouseEnter={() => setSidebarActive(true)}
           size="large"
           edge="start"
-          color="inherit"
+
           aria-label="menu"
           sx={{ mr: 2 }}
         >
@@ -59,13 +49,11 @@ function ResponsiveAppBar() {
     </AppBar>
 
     <Drawer PaperProps={{
-      sx: { width: "12%", borderRadius: '2%', background: '#0d7f6d' },
+      sx: { maxWidth: "300px", borderRadius: '2%', backgroundColor: '#d2fad7', paddingTop: '120px' },
     }}
       open={sidebarActive}
       onClose={() => setSidebarActive(false)}
     >
-      <Toolbar></Toolbar>
-      <Toolbar></Toolbar>
       <SideMenuItem href="/">Predstavitev</SideMenuItem>
       <SideMenuItem href="/vodstvo_drustva">Vodstvo</SideMenuItem>
       <SideMenuItem href="/kronologija">Kronologija</SideMenuItem>
@@ -89,11 +77,12 @@ type SideMenuItemProps = {
 function SideMenuItem({ children, href }: SideMenuItemProps) {
   return (
 
-    <ListItemButton component="a" href={href} sx={{ paddingX: "50px", color: "#FAFAFA" }}>
+    <ListItemButton component="a" href={href} sx={{ paddingX: "50px", color: "#000000" }}>
       <ListItemText primary={children} />
     </ListItemButton>
 
   );
+
 }
 
 export default ResponsiveAppBar
